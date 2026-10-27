@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Beautiful JWT",
+  "version": "1.0.0",
+  "description": "Simpan session token secara lokal dan refresh JWT dari endpoint pilihanmu.",
+  "permissions": ["storage", "alarms"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "action": {
+    "default_title": "Beautiful JWT",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

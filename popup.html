@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beautiful JWT</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand-icon">⌘</div>
+      <div>
+        <h1>Beautiful JWT</h1>
+        <p>Token manager lokal</p>
+      </div>
+      <span class="local-badge">LOCAL</span>
+    </header>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Konfigurasi</h2>
+          <p>Simpan session dan endpoint JWT</p>
+        </div>
+      </div>
+      <form id="config-form">
+        <input type="hidden" id="config-id">
+        <label for="name">Nama token</label>
+        <input id="name" name="name" placeholder="Admin Service In" maxlength="80" required>
+
+        <label for="session-token">Session token Better Auth</label>
+        <textarea id="session-token" name="sessionToken" rows="3" placeholder="Tempel session token di sini" autocomplete="off" spellcheck="false" required></textarea>
+        <p class="hint">Disimpan di chrome.storage.local pada profil browser ini.</p>
+
+        <label for="endpoint">Endpoint request JWT</label>
+        <input id="endpoint" name="endpoint" type="url" placeholder="http://localhost:8000/api/token/jwt" required>
+
+        <label for="interval">Request ulang setiap</label>
+        <div class="input-suffix">
+          <input id="interval" name="intervalMinutes" type="number" min="1" max="10080" step="1" value="5" required>
+          <span>menit</span>
+        </div>
+
+        <div class="button-row">
+          <button class="button secondary" type="button" id="reset-form">Bersihkan</button>
+          <button class="button primary" type="submit">Simpan &amp; refresh</button>
+        </div>
+      </form>
+      <div id="form-status" class="status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="token-section">
+      <div class="section-heading token-heading">
+        <div>
+          <h2>JWT tersimpan</h2>
+          <p id="token-count">0 token</p>
+        </div>
+        <button id="refresh-all" class="icon-button" type="button" title="Refresh semua token" aria-label="Refresh semua token">↻</button>
+      </div>
+      <div id="token-list" class="token-list"></div>
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">⌁</div>
+        <strong>Belum ada JWT</strong>
+        <span>Simpan konfigurasi untuk meminta JWT pertama.</span>
+      </div>
+    </section>
+    <footer>Session token dan JWT disimpan secara lokal. Jangan gunakan profil browser bersama untuk kredensial sensitif.</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
