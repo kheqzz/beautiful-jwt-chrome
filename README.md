@@ -55,3 +55,6 @@ Hanya nilai `token` yang disimpan dan ditampilkan sebagai JWT.
 - `chrome.storage.local` tidak terenkripsi sebagai password vault. Gunakan hanya pada profil browser yang aman dan jangan berbagi profil tersebut.
 - Request `fetch` memakai `credentials: "omit"` dan tidak mengirim cookie browser.
 - Untuk endpoint lintas origin, backend perlu mengizinkan origin extension pada konfigurasi CORS bila diperlukan. Host permission extension tidak menggantikan kebijakan CORS server.
+
+- Vibe Code 100 %
+- Bahasa Only
